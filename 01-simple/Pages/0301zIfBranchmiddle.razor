@@ -1,7 +1,6 @@
-﻿@page "/0301zIfBranchmiddle"
+﻿@page "/0301zIfBranchMiddle"
 
-<PageTitle>Minimum and Maximum</PageTitle>
-<h1>Minimum and Maximum</h1>
+<h1>Element at middle</h1>
 <p>
 You can try to enter integers, real numbers and texts that are not numbers at all.
 </p>
@@ -20,7 +19,7 @@ You can try to enter integers, real numbers and texts that are not numbers at al
     </tr>
     <tr>
         <td style="text-align:center" colspan="2">
-            <button @onclick="Middle">Determine Middle</button> &nbsp; 
+            <button @onclick="Middle">Determine Middle</button> &nbsp;
         </td>
     </tr>
     <tr>
@@ -38,17 +37,31 @@ You can try to enter integers, real numbers and texts that are not numbers at al
 
     private void Middle()
     {
-       result = x;
-        if (x <= y && y <= z)
-            result=y;
-        if (x <= y && y >= z && x > z)
-            result=z;
-        if (x <= y && y >= z && x <= z) 
-            result=x;
-        if (x >= y && y <= z && x > z)   
-            result=z;
-        if (x >= y && y >= z)   
-            result=y;  
+        result = x;
+        if (x <= y && y <= z){
+            Console.WriteLine("1");
+            result = y;
+        }
+        if (x <= y && y >= z && x <= z){
+            Console.WriteLine("2");
+            result = z;
+        }
+        if (x <= y && y >= z && x >= z){
+            Console.WriteLine("3");
+            result = x;
+        }
+        if (x >= y && y <= z && x <= z){
+            Console.WriteLine("4");
+            result = x;
+        }
+        if (x >= y && y <= z && x >= z){
+            Console.WriteLine("5");            
+            result = z;
+        }
+        if (x >= y && y >= z){
+            Console.WriteLine("6");            
+            result = y;
+        }
     }
 
 }

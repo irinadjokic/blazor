@@ -8,7 +8,7 @@
         <td>
             <select @bind="shape">
               <option value="cube">Cube</option>
-              <option value="shere">Shere</option>
+              <option value="sphere">Sphere</option>
               <option value="cuboid">Cuboid</option>
             </select>
         </td>
@@ -40,11 +40,11 @@
         </td>
     </tr>
     <tr>
-        <td>Area</td>
+        <td>Area:</td>
         <td><input style="text-align:right" @bind="area"/></td>
     </tr>
     <tr>
-        <td>Area:</td>
+        <td>Volumen:</td>
         <td><input style="text-align:right" @bind="volumen"/></td>
     </tr>
 </table>
@@ -71,8 +71,8 @@
     {
         if (shape == "sphere")
         {
-            area = 4 * pi * a *a;
-            volumen = 4 * pi * a * a * a /3;
+            area = 4 * pi * a * a;
+            volumen = 4 * pi * a * a * a / 3;
         }
         else if (shape == "cube")
         {
@@ -81,11 +81,12 @@
         }
         else if (shape == "cuboid")
         {
-            area = 2 * (a*b +  b*c + c*a);
+            area = 2 * (a*b + b*c + c*a);
             volumen = a * b * c;
         }
         else
         {
+            // we can not calculate area or volumen for this shape
             area = -1;
             volumen = -1;
         }

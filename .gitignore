@@ -396,3 +396,28 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+01-simple/Pages/0101HelloWorld.razor
+01-simple/Pages/0102HelloMultiLine.razor
+01-simple/Pages/0104Comments.razor
+01-simple/Pages/0105InputOutput.razor
+01-simple/Pages/0201IntVariables.razor
+01-simple/Pages/0202aIntOperators.razor
+01-simple/Pages/0202IntOperators.razor
+01-simple/Pages/0205CharVariables.razor
+01-simple/Pages/0301zIfBranchmiddle.razor
+01-simple/Pages/0302bIfElseBranch.razor
+01-simple/Pages/0303aIfElseBranchGuessing.razor
+01-simple/Pages/0304aSwitchBranch.razor
+01-simple/Pages/0401WhileLoopFactorial.razor
+01-simple/Pages/0402WhileLoopPower.razor
+01-simple/Pages/0404aLoopDoubleFactorial.razor
+01-simple/Pages/0404DoWhileLoopPower.razor
+01-simple/Pages/0502bFunctionDoubleFactorial.razor
+01-simple/Pages/0601ArrayIndexing.razor
+01-simple/Pages/0603ArrayIterationFunction.razor
+01-simple/Pages/0604ArrayIterationModule.razor
+01-simple/Pages/0605ArrayMinMax.razor
+01-simple/Pages/0606ArrayMinimum.razor
+01-simple/Pages/0606ArrayMinMaxModule.razor
+01-simple/Pages/0701ActorsShow.razor
+01-simple/Pages/0702ActorsShowModule.razor

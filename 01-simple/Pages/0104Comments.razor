@@ -1,10 +1,9 @@
 ﻿@page "/0104Comments"
 
-
 <h1>Comments</h1>
 <br/>
-
-<div style="border:solid; border-color:black">
+<br/>
+<div style="border:solid; border-color:red; margin: 5px">
   <pre>@message</pre>
 </div>
 
@@ -41,5 +40,6 @@
 
         // Many statements can be written in the same line
         message = message + "Goofy "; message = message + "Minny Mouse "; message = message + Environment.NewLine;
+        await Task.Run(() => message=message+"" );
     }
 }

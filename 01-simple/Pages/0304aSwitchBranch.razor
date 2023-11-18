@@ -1,12 +1,8 @@
 ﻿@page "/0304aSwitchbBranch"
 
-<PageTitle>Function calculation</PageTitle>
-<h1>Determin integer type</h1>
+<h1>Determine integer type</h1>
 <br/>
 <table>
-    <tr>
-        
-    </tr>
     <tr>
         <td>Argument:</td>
         <td>
@@ -15,7 +11,7 @@
     </tr>
     <tr>
         <td style="text-align:center" colspan="2">
-            <button @onclick="Determine">Calculate</button> &nbsp; 
+            <button @onclick="Determine">Determine</button> &nbsp; 
         </td>
     </tr>
     <tr>
@@ -27,18 +23,17 @@
 
 @code {
 
-
     private int x = 0;
 
-    private string result;
+    private string result="";
 
     private void Determine()
     {
         System.Console.WriteLine("Argument: " + x);
-        switch (x%4)
+        switch ( x%4 )
         {
             case 0:
-                result = "Number is devisible by 4";
+                result = "Number is divisible by 4";
                 break;
             case 1:
                 result = "Number minus one is divisible by 4";
@@ -48,7 +43,7 @@
                 break;
             case 3:
                 int k = x/4;
-                result = "Number form is (4 * " + k +"  + 3)";
+                result = "Number form is (4*" + k + "+3)";
                 break;
             default: //if i is not in the set {0,1,2,3}
                 result = "This should not happend!";
