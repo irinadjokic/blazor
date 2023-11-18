@@ -1,0 +1,65 @@
+﻿@page "/aIfInsideIf"
+
+<PageTitle>Number Categorization</PageTitle>
+<h1>Number Categorization</h1>
+<p>
+    Enter a number to categorize into ranges.
+</p>
+<table>
+    <!-- Input for the number -->
+    <tr>
+        <td>Number:</td>
+        <td><input style="text-align:right" @bind="number" /></td>
+    </tr>
+    <!-- Button to trigger categorization -->
+    <tr>
+        <td style="text-align:center" colspan="2">
+            <button @onclick="CategorizeNumber">Categorize</button> &nbsp;
+        </td>
+    </tr>
+    <!-- Display the category result -->
+    <tr>
+        <td>Category:</td>
+        <td><input style="text-align:right" @bind="category" /></td>
+    </tr>
+</table>
+<br/>
+@code {
+
+    private double number = 0;
+    private string category = "Not categorized";
+
+    private void CategorizeNumber()
+    {
+        // Nested if statements for categorization
+        if (number < 0)
+        {
+            category = "Negative Number";
+        }
+        else
+        {
+            if (number == 0)
+            {
+                category = "Zero";
+            }
+            else
+            {
+                if (number > 0 && number < 10)
+                {
+                    category = "Between 0 and 10";
+                }
+                else
+                {
+                    if (number >= 10 && number < 100)
+                    {
+                        category = "Between 10 and 100";
+                    }
+                    else
+                    {
+                        category = "Greater than or equal to 100";
+                    }
+                }
+            }
+        }
+    }
+}
