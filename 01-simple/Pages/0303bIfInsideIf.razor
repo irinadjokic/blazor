@@ -1,7 +1,7 @@
-﻿@page "/0303IfElseBranchGuessing"
+﻿@page "/bIfInsideIf"
 
-<PageTitle>Guessing Game</PageTitle>
-<h1>Guessing Game</h1>
+<PageTitle>Nested Guessing Game</PageTitle>
+<h1>Nested Guessing Game</h1>
 <br/>
 <table>
     <tr>
@@ -23,12 +23,12 @@
     </tr>
     @if (gameStarted)
     {
-            <tr>
-                <td style="text-align:center" colspan="2">
-                    <input style="text-align:right" @bind="newGuess"/> &nbsp;
-                    <button @onclick="CheckGuess">Check</button> &nbsp; 
-                </td>
-            </tr>
+        <tr>
+            <td style="text-align:center" colspan="2">
+                <input style="text-align:right" @bind="newGuess"/> &nbsp;
+                <button @onclick="CheckGuess">Check</button> &nbsp; 
+            </td>
+        </tr>
     }
     <tr>
         <td colspan="2">
@@ -38,46 +38,42 @@
 </table>
 <br/>
 
-
 @code {
     private int upperLimit = 100;
-
     private int lowerLimit = 1;
-
-    private int envisonedNumber = -1;
-
+    private int envisionedNumber = -1;
     private int newGuess = 0;
-
     private string message = "Press button 'Start Game'";
-
     private bool gameStarted = false;
 
     private void StartGame()
     {
         gameStarted = true;
         Random rnd = new Random();
-        envisonedNumber = rnd.Next(lowerLimit, upperLimit+1);
-        message = "I envisioned a number between " + lowerLimit + " and " + upperLimit + "." + Environment.NewLine
-                + "Try to reveal it!" + Environment.NewLine;
+        envisionedNumber = rnd.Next(lowerLimit, upperLimit+1);
+        message = $"I envisioned a number between {lowerLimit} and {upperLimit}." +
+                   $"{Environment.NewLine}Try to reveal it!{Environment.NewLine}";
     }
 
     private void CheckGuess()
     {
         if (envisonedNumber == newGuess)
         {
-            message += "CONGRATULATION! Number " + newGuess
-                    + " is the envisioned one!" + Environment.NewLine;
-            message += "For new game, press button 'Start Game'";
+            message += $"CONGRATULATION! Number {newGuess}" +
+                       $" is the envisioned one!{Environment.NewLine}" +
+                       $"For a new game, press button 'Start Game'";
             gameStarted = false;
-        }
-        else if (envisonedNumber > newGuess)
-        {
-            message += "Sorry, envisioned number is greater than " + newGuess + Environment.NewLine;
         }
         else
         {
-            message += "Sorry, envisioned number is less than " + newGuess + Environment.NewLine;
+            if (envisonedNumber > newGuess)
+            {
+                message += $"Sorry, envisioned number is greater than {newGuess}{Environment.NewLine}";
+            }
+            else
+            {
+                message += $"Sorry, envisioned number is less than {newGuess}{Environment.NewLine}";
+            }
         }
     }
-
 }
