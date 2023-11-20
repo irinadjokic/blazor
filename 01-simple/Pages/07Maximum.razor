@@ -1,0 +1,66 @@
+﻿@page "/07Maximum"
+
+<!-- section for HTML elements which define the user interface
+It includes a header, a paragraph explaining the purpose of the component,an input field for the array of integers, 
+a button to determine the maximum and an area to display the maximum value. --> 
+
+<h1>Maximum</h1>
+<p>Enter several integers, divided by exactly one space character.</p>
+<table>
+    <tr>
+        <!-- Input for the array of integers -->
+        <td>Array:</td>
+        <td><input style="text-align:right" @bind="numbers"/></td>
+         <!-- @bind directive is used for two-way data binding between the input field and the number variable -->
+    </tr>
+    <tr>
+        <!-- Button to determine the maximum -->
+        <td style="text-align:center" colspan="2">
+            <button @onclick="Maximum">Determine Maximum</button>  
+        </td>
+    </tr>
+    <tr>
+         <!-- Display the maximum value -->
+        <td>Maximum:</td>
+        <td>@max</td>
+    </tr>
+</table>
+
+@code{
+    private String numbers = "1 23 -4 -3 7"; // Default value for the input array
+    private int max = 0; // Result of the maximum calculation
+
+
+ // ArrayFromText function to convert the input string to an array of integers
+    private int[] ArrayFromText(String s)
+    {
+        String[] elements = s.Split();
+        int[] nums = new int[elements.Length];
+        for(int i=0; i< nums.Length; i++)
+            nums[i] = int.Parse(elements[i]);
+        return nums;
+    }
+
+ // PositionOfMaximum functionto find the position of the maximum value in the array
+    private int PositionOfMaximum(int[] array)
+    {
+        int posMax = 0;
+        for(int i=1; i<array.Length; i++)
+            if(array[i] > array[posMax])
+                posMax = i;
+        return posMax;
+    }
+
+// Event handler for the button click
+    private void Maximum()
+    {
+        int[] nums = ArrayFromText(numbers);
+        //Console.Write("nums:");    
+        //for(int i=0; i< nums.Length; i++)
+           // Console.Write(nums[i] + ":");
+        //Console.WriteLine();
+        int pos = PositionOfMaximum(nums); //PositionOfMaximum se zatim poziva da pronađe poziciju maksimalnu vrednosti u nizu
+        max = nums[pos];    
+
+    }
+}

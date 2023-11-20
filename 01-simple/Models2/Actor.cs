@@ -1,11 +1,16 @@
-namespace DSS.Models
+namespace DSS.Models2
 {
-    public class Actor: Man
+    public class Actor: Man, IVanity
     {
-        public duble ImdbMark = 5 ;
+        public double ImdbMark = 5;
 
-        public int NumberOfOscars  = 0 ;
+        public int NumberOfOscars = 0;
 
         public int NumberOfBaftas = 0;
+
+        public string Bragging(){
+            return "I, " + LastName + " " + FirstName + "  am the best actor!!!";
+        }
+
     }
 }
