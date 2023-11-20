@@ -1,0 +1,71 @@
+﻿@page "/05DoubleFactorialDecreasing"
+@* Unosom broja, klikom na dugme možemo videti rezultat izračunavanja dvostrukog faktorijala *@
+
+<h1>Double facorial Decreasing</h1>
+<br/>
+<table>
+    <tr>
+        <td>Number:</td>
+        <td>
+            <input style="text-align:right" @bind="number"/>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align:center" colspan="2">
+            <button title="double factorial" @onclick="CalculateDoubleFactorial">!!</button>
+        </td>
+    </tr>
+    <tr>
+        <td>@number!!&nbsp;=&nbsp;</td>
+        <td><input style="text-align:right" @bind="result"/></td>
+    </tr>
+ </table> 
+<br/>
+
+@code {
+
+    // Podrazumevana vrednost za number je postavljena na 5, a podrazumevani result je postavljen na 1
+    private int number = 5;
+
+    private double result = 1;
+
+    private void CalculateDoubleFactorial()
+    {
+        // Proverava da li je uneti broj manji ili jednak 0. 
+        // Ako je tačno, postavlja rezultat na -1 i vraća.
+        int n = number;
+        if ( n <= 0)
+        {
+            result = -1;
+            return;
+        }
+
+        // Prvo postavlja rezultat na 1.
+        // Proverava da li je uneti broj (n) paran ili neparan.
+        
+        result = 1;
+        if( n%2 == 0)
+        {   // for even n
+            int i = n;
+
+        // Ako je n paran broj, koristi se while, množenjem svakog parnog broja od n do 2
+            while( i >= 2 )
+            {
+                result *= i;
+                i -= 2;
+            }
+        }
+        // Ako je n neparno, koristi petlju dowhile, množenjem svakog neparnog broja od n do 1
+        else
+        {   // here n is odd
+            int i = n;
+            do
+            {
+                result *= i;
+                i -= 2;
+            } while(i >= 1);
+        }
+    }
+
+
+}

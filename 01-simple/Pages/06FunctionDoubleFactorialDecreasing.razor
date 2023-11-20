@@ -1,0 +1,64 @@
+﻿@page "/06FunctionDoubleFactorialDecreasing"
+
+<!-- section for HTML elements which define the user interface
+It includes a header, a table with input fields, a button for calculating the double factorial, 
+and an area to display the result --> 
+
+<h1>Double factorial decreasing / function</h1>
+<br/>
+<table>
+    <tr>
+        <!-- Input for the number -->
+        <td>Number:</td>
+        <td>
+            <input style="text-align:right" @bind="number"/>
+        </td>
+    </tr>
+    <tr>
+         <!-- Button to calculate double factorial -->
+        <td style="text-align:center" colspan="2">
+            <button title="double factorial" @onclick="CalculateDoubleFactorial">!!</button>
+        </td>
+    </tr>
+    <tr>
+         <!-- Display the result -->
+        <td>@number!!&nbsp;=&nbsp;</td>
+        <td><input style="text-align:right" @bind="result"/></td> 
+        <!-- @bind directive is used for two-way data binding between the input field and the number variable -->
+    </tr>
+ </table> 
+<br/>
+
+@code {
+
+    private int number = 5; // Default value for the input number
+
+    private double result = 1; // Result of the double factorial calculation
+
+
+ // Function to calculate double factorial 
+ // DFakt računa double factorial
+ // Proverava da li je broj paran ili neparan i u skladu sa tim vrši proračun. 
+ // Ako je broj manji ili jednak 0, vraća -1, što ukazuje na nevažeći unos. 
+    private double DFakt(int num){
+        if (num <= 0)
+            return -1;
+        double r = 1;
+        if( num%2 == 0)   
+            for(int i=num; i>= 2; i-=2)
+                r *= i;
+        else
+            for(int i=num; i>= 1; i-=2)
+                r *= i;
+        return r;
+    }
+
+
+// Event handler for the button click
+    private void CalculateDoubleFactorial()
+    {
+        result = DFakt(number);
+    }
+
+
+}
