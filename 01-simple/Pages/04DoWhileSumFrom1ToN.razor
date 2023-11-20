@@ -1,5 +1,6 @@
 ﻿@page "/04DoWhileSumFrom1ToN"
 
+
 <PageTitle>Dowhile sum from 1 to n</PageTitle>
 <h1>Sum 1 to n with dowhile</h1>
 <br/>
@@ -11,6 +12,7 @@
         </td>
     </tr>
     <tr>
+        <!-- Each button is associated with a specific method that calculates the sum in a different way. -->
         <td style="text-align:center" colspan="2">
             <button title="by forward counting" @onclick="SumByCountForward">Sum</button> &nbsp; 
             <button title="by backward counting" @onclick="SumByCountBackward">Sum</button> &nbsp; 
@@ -30,7 +32,7 @@
 
     private long result = 1;
 
-    private void SumByCountForward()
+    private void SumByCountForward() // Calculates the sum of integers from 1 to num using a dowhile loop with forward counting
     {
         Console.WriteLine("SumByCountForward");
         int n = num;
@@ -43,6 +45,8 @@
         }
         int i = 1;
         long fakt = 0;
+
+        // The dowhile loops perform the actual calculations for each method
         do
         {
             fakt = fakt + i;
@@ -54,14 +58,14 @@
         System.Console.WriteLine();
     }
 
-    private void SumByCountBackward()
+    private void SumByCountBackward() // Calculates the sum of integers from 1 to num using a dowhile loop with backward counting
     {
         Console.WriteLine("SumByCountBackward");
         int n = num;
         Console.WriteLine("Argument: " + n);
         if (n < 0)
         {
-            Console.WriteLine("Error - argument is negative.");
+            Console.WriteLine("Error - argument is negative."); // If the input (num) is negative, an error message is printed, and result is set to long.MinValue.
             result = long.MinValue;
             return;
         }
@@ -78,7 +82,7 @@
         System.Console.WriteLine();
     }
 
-    private void SumByDecrementing()
+    private void SumByDecrementing() // Calculates the sum of integers from 1 to num using a dowhile loop with decrementing
     {
         Console.WriteLine("SumByDecrementing");
         int n = num;
